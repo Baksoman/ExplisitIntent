@@ -1,5 +1,7 @@
 package com.example.explisitintent
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
@@ -28,6 +30,13 @@ class MainActivity5 : AppCompatActivity() {
             if (selectedRadioButtonId != -1) {
                 val _selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId)
                 val _selectedItem = _selectedRadioButton.text.toString()
+
+                val resultIntent = Intent()
+                resultIntent.putExtra(SelectedItem, _selectedItem)
+
+                setResult(Activity.RESULT_OK, resultIntent)
+
+                finish()
             }
         }
     }
